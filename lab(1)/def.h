@@ -6,6 +6,10 @@
 
 enum node_kind
 {
+    ARRAY_DEC,
+    STRUCT_DEF_INIT,
+    Tag,
+    OptTag,
     EXT_DEF_LIST,
     EXT_VAR_DEF,
     FUNC_DEF,
@@ -51,6 +55,7 @@ struct opn
         int const_int;     //整常数值，立即数
         float const_float; //浮点常数值，立即数
         char const_char;   //字符常数值，立即数
+        char const_string[31];
         char id[33];       //变量或临时变量的别名或标号字符串
     };
     int level;  //变量的层号，0表示是全局变量，数据保存在静态数据区
@@ -107,6 +112,7 @@ struct node
     char Snext[15];             //该结点对饮语句执行后的下一条语句位置标号
     struct codenode *code;      //该结点中间代码链表头指针
     char op[10];
+    int num;
     int type;   //结点对应值的类型
     int pos;    //语法单位所在位置行号
     int offset; //偏移量
@@ -120,8 +126,8 @@ struct symbol
     int type;       //变量类型或函数返回值类型
     int paramnum;   //形式参数个数
     char alias[10]; //别名，为解决嵌套层次使用，使得每一个数据名称唯一
-    char flag;      //符号标记，函数：'F'  变量：'V'   参数：'P'  临时变量：'T'
-    char offset;    //外部变量和局部变量在其静态数据区或活动记录中的偏移量
+    char flag;      //符号标记，函数：'F'  非数组变量：'V' 变量数组'A'  参数：'P'  临时变量：'T' 结构体'Ｓ'
+    int offset;    //外部变量和局部变量在其静态数据区或活动记录中的偏移量
                     //或函数活动记录大小，目标代码生成时使用
     //其它...
 };

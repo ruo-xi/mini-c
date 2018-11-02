@@ -81,8 +81,9 @@ extern int yydebug;
     WHILE = 291,
     FOR = 292,
     RETURN = 293,
-    UMINUS = 294,
-    LOWER_THEN_ELSE = 295
+    DOT = 294,
+    UMINUS = 295,
+    LOWER_THEN_ELSE = 296
   };
 #endif
 
@@ -102,7 +103,7 @@ union YYSTYPE
 	struct Struct *type_struct;
 	struct node *ptr;
 
-#line 106 "parser.tab.h" /* yacc.c:1909  */
+#line 107 "parser.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;

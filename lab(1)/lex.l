@@ -36,7 +36,7 @@ string (\"[A-Za-z0-9]*\")
 "float"      {strcpy(yylval.type_id,  yytext);return TYPE;}
 "char"        {strcpy(yylval.type_id,  yytext);return TYPE;}
 "string"      {strcpy(yylval.type_id,  yytext);return TYPE;}
-"struct"      {strcpy(yylval.type_id,  yytext);return TYPE;}
+"struct"      {strcpy(yylval.type_id,  yytext);return STRUCT;}
 
 "return"     {return RETURN;}
 "if"         {return IF;}
@@ -62,6 +62,7 @@ string (\"[A-Za-z0-9]*\")
 "]"         {return RB;}
 "{"			{return LC;}
 "}"			{return RC;}
+"."         {return DOT;}
 [\n]        {yycolumn=1;}
 [ \r\t]     {}
 "//"[^\n]*  {/* 注释 */}

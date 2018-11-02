@@ -394,8 +394,8 @@ static void yy_fatal_error (yyconst char msg[]  );
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
 
-#define YY_NUM_RULES 38
-#define YY_END_OF_BUFFER 39
+#define YY_NUM_RULES 39
+#define YY_END_OF_BUFFER 40
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -405,14 +405,14 @@ struct yy_trans_info
 	};
 static yyconst flex_int16_t yy_accept[88] =
     {   0,
-        0,    0,   39,   37,   34,   33,   26,   37,   37,   37,
-       27,   28,   22,   20,   17,   21,   37,   23,    1,   16,
+        0,    0,   40,   38,   35,   34,   26,   38,   38,   38,
+       27,   28,   22,   20,   17,   21,   33,   23,    1,   16,
        18,   19,   18,   15,   29,   30,   15,   15,   15,   15,
-       15,   15,   15,   31,   37,   32,   18,    4,    0,   24,
-        0,    2,    0,   35,    2,    1,   15,   15,   15,   15,
+       15,   15,   15,   31,   38,   32,   18,    4,    0,   24,
+        0,    2,    0,   36,    2,    1,   15,   15,   15,   15,
        15,   11,   15,   15,   15,   15,   25,    3,    0,    0,
-        0,   35,   15,   15,   15,   14,    5,   15,   15,   15,
-       36,    7,   12,   15,   15,   15,   15,   15,    6,   15,
+        0,   36,   15,   15,   15,   14,    5,   15,   15,   15,
+       37,    7,   12,   15,   15,   15,   15,   15,    6,   15,
        15,   15,   13,   10,    8,    9,    0
     } ;
 
@@ -530,10 +530,11 @@ static yyconst flex_int16_t yy_chk[158] =
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static yyconst flex_int32_t yy_rule_can_match_eol[39] =
+static yyconst flex_int32_t yy_rule_can_match_eol[40] =
     {   0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0,     };
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 
+        };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -569,7 +570,7 @@ typedef union {
 } YYLVAL;
 #define YYSTYPE YYLVAL
 
-#line 573 "lex.yy.c"
+#line 574 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -789,7 +790,7 @@ YY_DECL
 	{
 #line 29 "lex.l"
 
-#line 793 "lex.yy.c"
+#line 794 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -899,7 +900,7 @@ YY_RULE_SETUP
 case 9:
 YY_RULE_SETUP
 #line 39 "lex.l"
-{strcpy(yylval.type_id,  yytext);return TYPE;}
+{strcpy(yylval.type_id,  yytext);return STRUCT;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
@@ -1017,38 +1018,43 @@ YY_RULE_SETUP
 {return RC;}
 	YY_BREAK
 case 33:
-/* rule 33 can match eol */
 YY_RULE_SETUP
 #line 65 "lex.l"
-{yycolumn=1;}
+{return DOT;}
 	YY_BREAK
 case 34:
+/* rule 34 can match eol */
 YY_RULE_SETUP
 #line 66 "lex.l"
-{}
+{yycolumn=1;}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
 #line 67 "lex.l"
-{/* 注释 */}
+{}
 	YY_BREAK
 case 36:
-/* rule 36 can match eol */
 YY_RULE_SETUP
 #line 68 "lex.l"
 {/* 注释 */}
 	YY_BREAK
 case 37:
+/* rule 37 can match eol */
 YY_RULE_SETUP
 #line 69 "lex.l"
-{printf("Error type A :Mysterious character \"%s\"\n\t at Line %d\n",yytext,yylineno);}
+{/* 注释 */}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 70 "lex.l"
+{printf("Error type A :Mysterious character \"%s\"\n\t at Line %d\n",yytext,yylineno);}
+	YY_BREAK
+case 39:
+YY_RULE_SETUP
+#line 71 "lex.l"
 ECHO;
 	YY_BREAK
-#line 1052 "lex.yy.c"
+#line 1058 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2061,7 +2067,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 70 "lex.l"
+#line 71 "lex.l"
 
 
 
@@ -2077,3 +2083,4 @@ int yywrap()
 {
 return 1;
 }
+
