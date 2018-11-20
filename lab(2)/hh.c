@@ -21,21 +21,21 @@ char *strcat0(char *s1,char *s2) {
 char *newAlias() {
     static int no=1;
     char s[10];
-    itoa(no++,s,10);
+    sprintf(s,"%d",no++);
     return strcat0("v",s);
 }
 
 char *newLabel() {
     static int no=1;
     char s[10];
-    itoa(no++,s,10);
+    sprintf(s,"%d",no++);
     return strcat0("label",s);
 }
 
 char *newTemp(){
     static int no=1;
     char s[10];
-    itoa(no++,s,10);
+    sprintf(s,"%d",no++);
     return strcat0("temp",s);
 }
 
